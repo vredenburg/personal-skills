@@ -2,9 +2,10 @@
 
 This repository holds the maintained source versions of my personal agent skills. Each skill lives in `skills/<name>/` and can be installed and updated independently on each machine and agent harness.
 
-The collection contains only [naturalise-prose](skills/naturalise-prose/SKILL.md), which removes formulaic prose while preserving meaning, evidence, voice, register, and deliberate style. It includes `agents/openai.yaml`, a [supporting editorial rubric](skills/naturalise-prose/references/editorial-rubric.md), and [fiction editing guidance](skills/naturalise-prose/references/fiction-editing.md).
+The collection contains two skills:
 
-The skill also includes a [behavioral evaluation suite](skills/naturalise-prose/evals/guide.md) with editing tasks, assessment criteria, and a protocol for comparing revisions.
+- [naturalise-prose](skills/naturalise-prose/SKILL.md) removes formulaic prose while preserving meaning, evidence, voice, register, and deliberate style. It includes a [supporting editorial rubric](skills/naturalise-prose/references/editorial-rubric.md), [fiction editing guidance](skills/naturalise-prose/references/fiction-editing.md), and a [behavioral evaluation suite](skills/naturalise-prose/evals/guide.md).
+- [asus-anime-matrix](skills/asus-anime-matrix/SKILL.md) creates, previews, validates, and optionally plays ASUS AniMe Matrix animations using verified model geometry. It includes reusable scripts, adaptive battery tooling, and a GA402 profile and LED mask. Generated animations and mascot packs are not included; adaptive playback requires a user-created pack.
 
 ## Install and manage skills with an agent
 
@@ -16,11 +17,14 @@ Open this repository in an agent with filesystem access to the target machine, o
 
 Replace the skill and harness names as needed, and repeat on each machine where you want an installation. Cloning or updating the repository installs nothing; each installation and update is an explicit request.
 
-Once installed in Codex, invoke the skill with `$naturalise-prose`.
+Once installed in Codex, invoke the selected skill with `$naturalise-prose` or `$asus-anime-matrix`.
 
 ## Prerequisites and compatibility
 
-The skill contains only text files, with no scripts, package dependencies, required connectors, credentials, or hardware requirements. It needs a harness that loads `SKILL.md` and reads its relative supporting files. Model access and document-editing tools depend on the harness and task. The optional manual commands below require a Unix shell, `rsync`, and `diff`.
+Both skills need a harness that loads `SKILL.md` and reads its relative supporting files. Model access and task tools depend on the harness. The optional manual commands below require a Unix shell, `rsync`, and `diff`.
+
+- **naturalise-prose:** Text files only, with no scripts, package dependencies, required connectors, credentials, or hardware requirements.
+- **asus-anime-matrix:** Bash and ImageMagick 7 (`magick`) for rendering and validation; Python 3 (standard library only) for the adaptive controller. Live playback additionally requires compatible ASUS AniMe Matrix hardware, `asusctl` with its daemon, and systemd user services. Adaptive mode reads Linux power-supply information. Only GA402 geometry is currently included; offline rendering can select that verified profile explicitly. Creating artwork does not start playback.
 
 | Harness | Compatibility |
 | --- | --- |

@@ -44,3 +44,6 @@ node_modules/
 /logs/
 /state/
 *.log
+
+# Generated AniMe Matrix mascot packs
+/skills/asus-anime-matrix/assets/mascots/
