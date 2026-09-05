@@ -20,7 +20,7 @@ Once installed in Codex, invoke the skill with `$naturalise-prose`.
 
 ## Prerequisites and compatibility
 
-The skill contains only Markdown, YAML, and JSON, with no scripts, package dependencies, required connectors, credentials, or hardware requirements. It needs a harness that loads `SKILL.md` and reads its relative supporting files. Model access and document-editing tools depend on the harness and task. The optional manual commands below require a Unix shell, `rsync`, and `diff`.
+The skill contains only text files, with no scripts, package dependencies, required connectors, credentials, or hardware requirements. It needs a harness that loads `SKILL.md` and reads its relative supporting files. Model access and document-editing tools depend on the harness and task. The optional manual commands below require a Unix shell, `rsync`, and `diff`.
 
 | Harness | Compatibility |
 | --- | --- |
@@ -98,3 +98,7 @@ After reviewing the preview, apply it to that skill alone:
 To uninstall a skill from a harness, remove its installed copy and refresh the harness.
 
 </details>
+
+## License
+
+All repository content, including skill instructions, documentation, reference material, and evaluation files, is licensed under the [MIT License](LICENSE). Each skill directory includes a copy of the license so it accompanies standalone installations.
