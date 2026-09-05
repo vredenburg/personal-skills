@@ -1,0 +1,6 @@
+interface:
+  display_name: "Naturalise prose"
+  short_description: "Revise prose without flattening its voice"
+  default_prompt: "Use $naturalise-prose to revise this text while preserving its meaning and voice."
+policy:
+  allow_implicit_invocation: true
