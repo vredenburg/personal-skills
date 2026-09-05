@@ -28,7 +28,7 @@ When matching a voice sample, borrow high-level tendencies such as syntax, dicti
 
 ## Choose the mode
 
-- **Fiction:** protect POV, tense, narrative distance, character diction, scene logic, pacing, ambiguity, imagery, and canon. Do not normalize purposeful irregularity or add interiority and detail that the author did not supply.
+- **Fiction:** protect POV, tense, narrative distance, character diction, scene logic, pacing, ambiguity, imagery, and canon. For passage-level fiction edits or close voice matching, read [references/fiction-editing.md](references/fiction-editing.md) to guide recasting and compare its effect with the original. Do not normalize purposeful irregularity or add interiority and detail that the author did not supply.
 - **Nonfiction:** protect claims, attribution, qualifications, citations, quotations, terminology, and document structure. Do not replace vague authority with an invented source or remove qualifiers required for accuracy.
 
 For passage-level or long-form work, close voice or canon matching, or uncertain diagnostic calls, read [references/editorial-rubric.md](references/editorial-rubric.md). A small, obvious sentence-level fix does not require loading the rubric.

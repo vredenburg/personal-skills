@@ -2,7 +2,9 @@
 
 This repository holds the maintained source versions of my personal agent skills. Each skill lives in `skills/<name>/` and can be installed and updated independently on each machine and agent harness.
 
-The collection contains only [naturalise-prose](skills/naturalise-prose/SKILL.md), which removes formulaic prose while preserving meaning, evidence, voice, register, and deliberate style. It includes `agents/openai.yaml` and a [supporting editorial rubric](skills/naturalise-prose/references/editorial-rubric.md).
+The collection contains only [naturalise-prose](skills/naturalise-prose/SKILL.md), which removes formulaic prose while preserving meaning, evidence, voice, register, and deliberate style. It includes `agents/openai.yaml`, a [supporting editorial rubric](skills/naturalise-prose/references/editorial-rubric.md), and [fiction editing guidance](skills/naturalise-prose/references/fiction-editing.md).
+
+The skill also includes a [behavioral evaluation suite](skills/naturalise-prose/evals/guide.md) with editing tasks, assessment criteria, and a protocol for comparing revisions.
 
 ## Install and manage skills with an agent
 
@@ -18,7 +20,7 @@ Once installed in Codex, invoke the skill with `$naturalise-prose`.
 
 ## Prerequisites and compatibility
 
-The skill contains only Markdown and YAML, with no scripts, package dependencies, required connectors, credentials, or hardware requirements. It needs a harness that loads `SKILL.md` and reads the relative rubric file. Model access and document-editing tools depend on the harness and task. The optional manual commands below require a Unix shell, `rsync`, and `diff`.
+The skill contains only Markdown, YAML, and JSON, with no scripts, package dependencies, required connectors, credentials, or hardware requirements. It needs a harness that loads `SKILL.md` and reads its relative supporting files. Model access and document-editing tools depend on the harness and task. The optional manual commands below require a Unix shell, `rsync`, and `diff`.
 
 | Harness | Compatibility |
 | --- | --- |

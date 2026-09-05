@@ -67,22 +67,7 @@ Passive voice, em dashes, fragments, sentence-initial conjunctions, rhetorical q
 
 ## Fiction checks
 
-Build a compact voice fingerprint before revising: POV and tense, narrative distance, sentence movement, diction, figurative density, dialogue habits, paragraph rhythm, and the kinds of detail the narrator notices.
-
-Then check that the edit:
-
-- does not give a narrator or character knowledge they lacked;
-- does not invent motivation, sensation, staging, world detail, or thematic explanation;
-- does not standardize distinct dialogue or interior voices;
-- does not resolve ambiguity, subtext, or silence that the scene relies on;
-- does not accelerate or flatten a passage whose repetition controls tension;
-- remains consistent with supplied or explicitly in-scope canon.
-
-Example: preserve a purposeful device.
-
-> The bell rang. Once. Twice. It was not merely the signal for curfew; it was a reminder that the gates were already locked.
-
-Leave unchanged. The bell both signals curfew and serves as a reminder that the gates are already locked. The contrast foregrounds that second function, and the fragments carry tension. Any stylistic recast should preserve these effects as well as the stated events.
+For passage-level fiction edits or close voice matching, use [fiction-editing.md](fiction-editing.md). It connects the passage's voice to revision choices, demonstrates recasting, and checks both the improvement and its effect on the scene.
 
 ## Nonfiction checks
 
