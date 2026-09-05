@@ -20,13 +20,13 @@ One conspicuous defect can justify an edit, but an isolated word, dash, fragment
 
 Watch for ceremony that inflates ordinary facts into milestones, symbols, transformations, legacies, or evidence of a sweeping trend. Promotional adjectives and claims of importance are suspect when the text never demonstrates them.
 
-Keep genuine evaluation when the author supports it. Otherwise state the event, consequence, or comparison directly.
+Trim ceremonial wording without adding evidence, strengthening the claim, or discarding the author's substantive evaluation.
 
 ### Abstraction and unsupported authority
 
 Watch for abstract nouns replacing actors and actions, vague groups presented as authorities, and claims attributed to unnamed experts, observers, reports, or public opinion. Also notice weak claims padded with multiple layers of caution.
 
-Do not manufacture a source or a firmer claim. Name an existing source, retain the necessary uncertainty, or remove a dispensable unsupported sentence.
+Do not manufacture a source or a firmer claim. Name an existing source only when the material establishes that attribution; otherwise preserve the vague attribution and necessary uncertainty, flagging missing support when useful.
 
 ### Canned framing and residue
 
@@ -78,13 +78,11 @@ Then check that the edit:
 - does not accelerate or flatten a passage whose repetition controls tension;
 - remains consistent with supplied or explicitly in-scope canon.
 
-Example:
+Example: preserve a purposeful device.
 
-> Before: The bell rang. Once. Twice. It was not merely the signal for curfew; it was a reminder that the gates were already locked.
->
-> After: The bell rang. Once. Twice. Curfew had begun, and the gates were already locked.
+> The bell rang. Once. Twice. It was not merely the signal for curfew; it was a reminder that the gates were already locked.
 
-The fragments carry tension and remain. The inflated contrast disappears, while every stated event remains intact.
+Leave unchanged. The bell both signals curfew and serves as a reminder that the gates are already locked. The contrast foregrounds that second function, and the fragments carry tension. Any stylistic recast should preserve these effects as well as the stated events.
 
 ## Nonfiction checks
 
@@ -94,24 +92,34 @@ Preserve legal, scientific, and technical qualifications even when they slow the
 
 Example:
 
-> Before: Some observers say the trial may have improved retention. The company reported that 68% of participants remained after six months.
+> Before: It is worth noting that some observers say the trial may have improved retention. The company reported that 68% of participants remained after six months.
 >
-> After: The company reported that 68% of participants remained after six months.
+> After: Some observers say the trial may have improved retention. The company reported that 68% of participants remained after six months.
 
-The revision removes an unattributed interpretation without turning the company's figure into proof of improvement.
+The revision removes introductory padding while retaining the observers' interpretation, its uncertainty, and the company's attributed figure. If a source note is useful, flag the unnamed observers separately. The percentage alone does not establish improvement.
 
 ## Minimal-edit examples
 
-Empty elevation:
+Inflated phrasing:
 
-> Before: Opened in 2008, the archive stands as a powerful testament to the community's enduring commitment to preserving its history.
+> Before: In 2008, the community carried out the opening of the archive with the aim of preserving its history.
 >
-> After: The community opened the archive in 2008 to preserve its history.
+> After: In 2008, the community opened the archive to preserve its history.
+
+The source supplies both the actor and the purpose. The revision simplifies the wording without inferring either.
 
 Redundant explanation:
 
 > Before: The export failed because the destination was read-only. In other words, the system could not write the file there.
 >
 > After: The export failed because the destination was read-only.
+
+Repeated sentence openings in a routine status update:
+
+> Before: Maya checked the figures. Maya found a duplicate entry. Maya removed the duplicate entry. Maya sent the corrected report.
+>
+> After: After checking the figures and finding a duplicate entry, Maya removed that entry. Then Maya sent the corrected report.
+
+The actions and their order remain intact. The sentence rhythm changes without shortening the passage.
 
 These examples illustrate decisions, not preferred sentence shapes. Match the live text rather than imitating them.

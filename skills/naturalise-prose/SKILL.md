@@ -22,7 +22,7 @@ Treat these as invariants unless the user explicitly asks to change them:
 - register, point of view, tense, narrative distance, character knowledge, and project canon;
 - intentional repetition, fragments, metaphors, rhetorical questions, punctuation, and other voice-bearing choices.
 
-Never invent facts, sources, examples, experiences, opinions, emotions, motives, sensory detail, or lore to make prose seem more vivid or personal. Specificity must come from the source or other authorized, verified context. If a vague claim cannot be made concrete safely, retain its uncertainty, trim it if dispensable, or flag it.
+Never invent facts, sources, examples, experiences, opinions, emotions, motives, sensory detail, or lore to make prose seem more vivid or personal. Specificity must come from the source or other authorized, verified context. If a vague claim cannot be made concrete safely, retain its attribution and uncertainty, flagging missing support when useful. Missing support alone does not justify deletion; remove a claim only when redundant without loss of meaning or when the user's requested content cuts authorize its removal.
 
 When matching a voice sample, borrow high-level tendencies such as syntax, diction, rhythm, punctuation, and paragraph movement. Do not import the sample's content or exaggerate its quirks into caricature.
 
@@ -41,7 +41,7 @@ Look for clusters of empty elevation, generic abstraction, canned transitions, f
 
 Prefer targeted recasting over global stylistic normalization. Recover the author's own texture rather than imposing a default conversational, minimalist, or "opinionated" voice. Do not add mistakes, random variation, slang, or inconsistent typography as artificial signs of humanness.
 
-Before delivering, verify that the revision introduces no new proposition, loses no necessary qualification, changes no canonical detail, damages no quotation or citation, and leaves deliberate stylistic choices intact.
+Before delivering, verify that the revision introduces no new proposition, drops no nonredundant claim without authorization, loses no necessary qualification or narrative function, changes no canonical detail, damages no quotation or citation, and leaves deliberate stylistic choices intact.
 
 ## Return the result
 
