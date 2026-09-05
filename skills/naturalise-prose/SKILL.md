@@ -41,7 +41,7 @@ Look for clusters of empty elevation, generic abstraction, canned transitions, f
 
 Prefer targeted recasting over global stylistic normalization. Recover the author's own texture rather than imposing a default conversational, minimalist, or "opinionated" voice. Do not add mistakes, random variation, slang, or inconsistent typography as artificial signs of humanness.
 
-Before delivering, verify that the revision introduces no new proposition, drops no nonredundant claim without authorization, loses no necessary qualification or narrative function, changes no canonical detail, damages no quotation or citation, and leaves deliberate stylistic choices intact.
+Before delivering, check the revision against the agreed edit contract. New propositions must be supported and within the requested scope. Preserve nonredundant claims, necessary qualifications, narrative functions, canonical details, quotations, citations, and deliberate stylistic choices except where changes were explicitly requested.
 
 ## Return the result
 

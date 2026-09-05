@@ -108,11 +108,13 @@ Inflated phrasing:
 
 The source supplies both the actor and the purpose. The revision simplifies the wording without inferring either.
 
-Redundant explanation:
+Redundant explanation for readers familiar with file permissions:
 
 > Before: The export failed because the destination was read-only. In other words, the system could not write the file there.
 >
 > After: The export failed because the destination was read-only.
+
+For readers unfamiliar with "read-only," keep or integrate the explanation.
 
 Repeated sentence openings in a routine status update:
 
