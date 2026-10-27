@@ -1,0 +1,6 @@
+interface:
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  display_name: "ASUS AniMe Matrix"
+  short_description: "Build verified and adaptive AniMe Matrix animations"
+  default_prompt: "Use $asus-anime-matrix to create or control a model-correct animation for my laptop."

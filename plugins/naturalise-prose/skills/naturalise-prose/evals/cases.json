@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "01-voice-match",
+      "title": "Match a separate voice sample without importing its content",
+      "prompt_file": "prompts/01-voice-match.md",
+      "requirements": [
+        "The revision retains a separate billing contact without a change of account owner.",
+        "Availability remains all paid accounts from 14 June; no year, free-account eligibility, or different rollout schedule is invented.",
+        "Existing contacts remain until an account owner changes them, and account owners can make the change in Settings > Billing.",
+        "No help button, search box, support workflow, or other fact from the voice sample is added to the draft's announcement.",
+        "The response contains only one revised update, without an explanation or evaluation."
+      ],
+      "quality_targets": [
+        "Transfer the sample's direct, calm address, straightforward syntax, and conversational rhythm.",
+        "Reduce announcements and repetition without adding enthusiasm, jokes, promises, or a caricature of the sample's sentence shapes."
+      ],
+      "acceptable_variations": [
+        "First- and second-person phrasing, contractions, and paragraph rearrangement are appropriate for the requested voice match.",
+        "The revision need not reproduce any sentence from the sample or use a particular word count."
+      ]
+    },
+    {
+      "id": "02-fiction-repetition",
+      "title": "Lightly edit fiction while preserving perspective and deliberate rhythm",
+      "prompt_file": "prompts/02-fiction-repetition.md",
+      "requirements": [
+        "The scene remains in past tense and close third person through Iona.",
+        "Hal reports only that the coat is gone; the edit does not establish that he witnessed a departure.",
+        "Hal having moved the coat remains Iona's possibility, not a confirmed event. Hal and Mara both have keys; their motives and actions are not invented.",
+        "The empty hook and kitchen light remain observable from Iona's position outside the door.",
+        "Iona stays on the landing, one step below the door and one step beyond the last window, and does not reach for the handle.",
+        "No new interior knowledge, sensory detail, staging, or explanation of the characters' intentions is added.",
+        "The response contains only the scene."
+      ],
+      "quality_targets": [
+        "Preserve the measured repetition and fragments that create tension, especially the two One step sentences and Empty.",
+        "Keep Hal's clipped diction and Iona's pointed May I response distinct.",
+        "A useful edit can simplify the cumbersome phrase about considering a possibility while retaining its uncertainty."
+      ],
+      "acceptable_variations": [
+        "A very small edit is sufficient; leaving effective sentences unchanged is desirable.",
+        "Punctuation can vary when the hesitation, irony, and pacing survive. Do not require a single exact revision."
+      ]
+    },
+    {
+      "id": "03-nonfiction-claims",
+      "title": "Preserve evidence, attribution, and qualifications",
+      "prompt_file": "prompts/03-nonfiction-claims.md",
+      "requirements": [
+        "The review's reported pilot remains six weeks long with 84 support staff; median first-response time falls from 46 to 39 minutes.",
+        "The absence of overnight shifts and of a comparison group both remain.",
+        "Some supervisors' tentative view that missed handovers may have been reduced remains attributed and uncertain.",
+        "The quotation remains exactly: The results do not establish that the rota caused the improvement.",
+        "Citation marker [1] stays attached to that quotation and its reference remains Internal pilot review, section 3.",
+        "Seven staff members did not complete the end-of-pilot questionnaire; this is not recast as seven leaving the pilot or the job.",
+        "The board has not yet approved a wider rollout; the edit does not turn this into a rejection or an approval.",
+        "No causal conclusion, new source, or external verification is added. The response contains only the revised passage."
+      ],
+      "quality_targets": [
+        "Remove introductory padding and improve flow without making the findings sound stronger or more universal.",
+        "Maintain a measured register appropriate for a board briefing."
+      ],
+      "acceptable_variations": [
+        "Sentences may be combined or reordered if every attribution and qualification still has an unambiguous scope.",
+        "Names of metrics, the quoted words, and the citation are protected; the surrounding wording has no prescribed form."
+      ]
+    },
+    {
+      "id": "04-already-effective",
+      "title": "Recognize prose that needs little or no intervention",
+      "prompt_file": "prompts/04-already-effective.md",
+      "requirements": [
+        "The spare key remains in a blue tin above the fridge.",
+        "The instructions remain to take the key when leaving and put it back when returning.",
+        "The front lock sticks in cold weather, and the handle must be lifted before the key is turned.",
+        "No new location, explanation, person, precaution, or instruction is invented.",
+        "The response contains only the note."
+      ],
+      "quality_targets": [
+        "Recognize that the note is already direct, specific, and natural.",
+        "Avoid synonym substitutions, extra friendliness, new headings, or rhythm changes that have no clear benefit."
+      ],
+      "acceptable_variations": [
+        "An unchanged response is a fully successful result.",
+        "A minor punctuation or wording change is acceptable if it preserves the note's directness; byte-for-byte equality is not required."
+      ]
+    },
+    {
+      "id": "05-audience-expert",
+      "title": "Judge explanatory redundancy for an expert audience",
+      "pair_id": "audience",
+      "prompt_file": "prompts/05-audience-expert.md",
+      "requirements": [
+        "The export stopped after a lock timeout; the error name lock timeout remains.",
+        "The Retry command label remains, and Retry starts a new export rather than resuming the interrupted one.",
+        "No data loss, permission problem, guaranteed recovery, or new troubleshooting step is invented.",
+        "The response contains only the notice."
+      ],
+      "quality_targets": [
+        "Write a concise notice suited to database administrators.",
+        "The explanation of lock timeout can be shortened or removed because this audience understands the term; remove the empty announcement about what is important to note.",
+        "Keep the operational distinction between restarting and resuming prominent."
+      ],
+      "acceptable_variations": [
+        "A concise retained explanation is acceptable. Deleting one specific sentence is not a pass condition.",
+        "If the explanation is retained, it must preserve the blocking operation and waiting-limit meaning."
+      ]
+    },
+    {
+      "id": "06-audience-novice",
+      "title": "Retain explanations needed by a novice audience",
+      "pair_id": "audience",
+      "prompt_file": "prompts/06-audience-novice.md",
+      "requirements": [
+        "The export stopped after a lock timeout; the error name lock timeout remains.",
+        "The notice explains in accessible terms that another operation blocked access to the data and the export reached its waiting limit.",
+        "The Retry command label remains, and Retry starts a new export rather than resuming the interrupted one.",
+        "No data loss, permission problem, guaranteed recovery, or new troubleshooting step is invented.",
+        "The response contains only the notice."
+      ],
+      "quality_targets": [
+        "Integrate or retain the useful explanation without leaving the reader to decode database terminology.",
+        "Remove introductory padding without sacrificing the practical explanation of what Retry does."
+      ],
+      "acceptable_variations": [
+        "The definition may be integrated with the error sentence or retained separately.",
+        "Identical expert and novice outputs are not automatically a failure if one wording serves both audiences well."
+      ]
+    },
+    {
+      "id": "07-authorized-addition",
+      "title": "Incorporate a supported fact when requested",
+      "pair_id": "source-scope",
+      "prompt_file": "prompts/07-authorized-addition.md",
+      "requirements": [
+        "The announcement incorporates the launch date of 22 September from the supplied note without inventing a year.",
+        "The page is presented as upcoming, not already available.",
+        "Customers will be able to choose a time without calling reception, and booking by phone will remain available.",
+        "No unsupported capability, booking guarantee, eligibility rule, or other new proposition is added.",
+        "The response contains only the announcement; it does not refuse the requested addition or ask for permission already provided."
+      ],
+      "quality_targets": [
+        "Integrate the date naturally instead of appending a separate editorial note.",
+        "Keep the customer update direct and remove ceremonial announcements."
+      ],
+      "acceptable_variations": [
+        "The launch date can replace the vague nearing-completion framing when future availability remains clear.",
+        "Either we or the existing organizational phrasing is acceptable."
+      ]
+    },
+    {
+      "id": "08-background-only",
+      "title": "Keep background facts out when additions are outside scope",
+      "pair_id": "source-scope",
+      "prompt_file": "prompts/08-background-only.md",
+      "requirements": [
+        "The launch date from the background note is not added to the announcement.",
+        "The booking page remains nearing completion and upcoming, not already available.",
+        "Customers will be able to choose a time without calling reception, and booking by phone will remain available.",
+        "No unsupported capability, booking guarantee, eligibility rule, or other new proposition is added.",
+        "The response contains only the announcement, without restating the background note in commentary."
+      ],
+      "quality_targets": [
+        "Improve the draft using its own material while respecting the narrower request.",
+        "Remove ceremonial phrasing without substituting new specifics from the background note."
+      ],
+      "acceptable_variations": [
+        "Nearly ready or a similar faithful rendering of nearing completion is acceptable.",
+        "The presence of a verified fact in the input is not itself authorization to add it."
+      ]
+    },
+    {
+      "id": "09-long-continuity",
+      "title": "Maintain relationships and scope across a longer report",
+      "prompt_file": "prompts/09-long-continuity.md",
+      "requirements": [
+        "All five headings remain, in order, and the defined names Quiet Window and Trial Group retain consistent meanings.",
+        "The trial covers Market Street weekday deliveries from 09:00 to 10:30. Collections, weekends, and other streets remain outside scope.",
+        "The first observation period is six weeks. Of 22 invited shops, 18 form the Trial Group and four continue their existing arrangements.",
+        "Fifteen Trial Group shops use the slot at least once and three do not; participation, use, and support for continuation are not equated.",
+        "The complaint comparison remains nine in the first fortnight and four in the final fortnight, excluding the middle fortnight. Counts represent complaints, not vehicles or distinct residents.",
+        "Roadworks start during the second week, delivery volumes change without reliable counts, and officers cannot isolate the trial's effect. The reduction is not presented as causal proof.",
+        "Twelve shops return questionnaires: eight prefer keeping the slot, three prefer changed hours, and one is undecided. The six nonrespondents are not treated as supporting or opposing an extension.",
+        "Among the three requests for changes, two favor a later start and one an earlier finish. The questionnaire establishes no preferred replacement slot.",
+        "Residents' pavement-access comments remain separate from the shop questionnaire and its totals.",
+        "An accessibility officer must approve the proposed Mill Lane bay layout before the committee can consider an extension. Layout approval does not approve delivery hours or a permanent scheme.",
+        "The proposed bay is unavailable under current permission; the Trial Group must keep using existing loading arrangements until new permission is issued.",
+        "The committee is due to review the layout on 14 June, with no extension approved. Existing permission lasts until 28 June and applies only to the Trial Group.",
+        "A future extension decision must specify participants, delivery hours, and start date. No approval, expansion, or date is inferred.",
+        "Cross-paragraph references still point to the correct figures, approval, conditions, and deadline. The response contains the complete revised report only."
+      ],
+      "quality_targets": [
+        "Reduce repetitive framing and improve paragraph transitions while retaining the report's evidence and decision structure.",
+        "Make the report accessible to residents without flattening distinctions between observations, opinions, proposals, and permissions.",
+        "Maintain natural cadence throughout the full passage instead of repeating one sentence pattern."
+      ],
+      "acceptable_variations": [
+        "Paragraphs can be recast within the retained headings, and explicit nouns may replace ambiguous pronouns.",
+        "Explanations of denominators, scope, and pending decisions can remain even if they increase length."
+      ]
+    },
+    {
+      "id": "10-review-only",
+      "title": "Diagnose patterns without rewriting or asserting authorship",
+      "prompt_file": "prompts/10-review-only.md",
+      "requirements": [
+        "The response provides two or three observations tied to specific wording or constructions in the passage.",
+        "Each observation explains an effect on this text, rather than only naming a generally disliked word or device.",
+        "The response does not supply a replacement passage or rewritten sentences.",
+        "The response does not assert that the passage was written by AI or report a detector verdict.",
+        "The response does not invent evidence about the checklist's actual effectiveness."
+      ],
+      "quality_targets": [
+        "Prioritize consequential issues such as inflated significance, the absolute guarantee that nothing is missed, and generic framing that obscures the concrete checklist actions.",
+        "Distinguish an unsupported promise from a fact known to be false.",
+        "Keep the review concise and useful to an editor."
+      ],
+      "acceptable_variations": [
+        "Short quotations from the original are appropriate evidence and do not count as rewriting.",
+        "Any two or three well-supported observations are acceptable; no exact set of labels is required."
+      ]
+    },
+    {
+      "id": "11-at-the-landing",
+      "title": "Waiting at the landing",
+      "prompt_file": "prompts/11-at-the-landing.md",
+      "requirements": [
+        "Return a line-edited passage in the narrator's first person and past tense, preserving the leisurely, slightly wry voice requested by the user.",
+        "Preserve the basic staging: the final ferry and its two cyclists have gone; the narrator waits at the landing for a sister arriving by road, despite the house being easier to find.",
+        "Preserve the shared childhood or earlier memory of splitting chips on the bollard, the coat's failure to keep out the cold, the café worker stacking chairs across the water, the sister's warning that she would be late, and the narrator's book and repeated line about a man entering a garden.",
+        "Keep the narrator's reasons for choosing the landing, the nature of any difficult news, and the broader situation unresolved; do not invent a bereavement, quarrel, reunion history, or message from the sister.",
+        "Preserve the movement from observation of practical work to the narrator's attempt to make waiting seem intentional and the final wish that the fictional man reach the garden before the sister arrives."
+      ],
+      "quality_targets": [
+        "Repair local awkwardness such as the recursive explanation of the iron's coldness and the abstract account of envy, while keeping their sensory and emotional work.",
+        "Maintain a flowing narrative cadence and connections between clauses and paragraphs; local simplification should not make the passage sound uniformly clipped or conversationally generic.",
+        "Keep the dry observations about the cyclists, the allegedly practical arrangement, and the sister's advance warning legible without explaining their implications.",
+        "Retain the garden image and its quiet relationship to the anticipated headlights rather than replacing it with a stated emotion."
+      ],
+      "acceptable_variations": [
+        "Sentences may be combined, divided, or lightly reordered within a paragraph when the chronology and leisurely movement survive.",
+        "The envy and cold may be expressed directly, through a concrete local observation, or through a leaner version of the existing phrasing without introducing a new incident or object.",
+        "Effective wording and images may remain substantially unchanged; a successful edit need not reduce the overall length."
+      ]
+    },
+    {
+      "id": "12-the-suitcase",
+      "title": "A suitcase needed by four",
+      "prompt_file": "prompts/12-the-suitcase.md",
+      "requirements": [
+        "Keep the scene in third-person past-tense narration and preserve Mrs Bell's terse, practical manner and Felix's more hesitant, informal speech.",
+        "Preserve the repair problem and timing: Felix presented the broken handle as the main issue; the zip also sticks; his father wants the suitcase back by four for a train at five; Mrs Bell can replace the handle today but needs longer for the zip.",
+        "Retain the father's reported remarks as indirect speech or otherwise retain their reported, offstage status; do not add a direct exchange with him or make him physically present.",
+        "Preserve Felix's disclosure that his father was not going yesterday, Mrs Bell's pause or change in attention after it, and the uncertainty about why the journey has arisen.",
+        "Keep the belt workaround, Felix's claim that his father has only one belt, and Mrs Bell's final remark about keeping his trousers on.",
+        "Do not settle the father's motive, invent a family emergency, add a completed repair, or supply an emotional explanation for Mrs Bell's response."
+      ],
+      "quality_targets": [
+        "Make mechanical narration about Felix's hands, Mrs Bell's gesture towards the clock, and her return of attention to the case read naturally while retaining the useful pauses and physical beats.",
+        "Clarify the father's deadline and reported preference without flattening the narrator's understated observation about the false choice between a shirt and a train.",
+        "Keep the dialogue's asymmetry: Felix qualifies or trails off, while Mrs Bell answers efficiently and uses dry humour. Do not smooth both speakers into the same register.",
+        "Allow the change after 'He wasn't going yesterday' to register through the existing exchange and action, with the narrator remaining unobtrusive."
+      ],
+      "acceptable_variations": [
+        "Dialogue punctuation, contractions, speech tags, and nearby action beats may change where the voices and conversational sequence remain clear.",
+        "Some hesitations may be removed or redistributed if Felix still sounds recognisably less direct than Mrs Bell; every filler is not mandatory.",
+        "The physical beats can be shortened or recast, and brief dialogue lines can remain exactly as written; no particular word count or sentence pattern is required."
+      ]
+    },
+    {
+      "id": "13-last-shift",
+      "title": "An usher's last shift",
+      "prompt_file": "prompts/13-last-shift.md",
+      "requirements": [
+        "Keep the close third-person viewpoint centred on Mara, past-tense narration, the unhurried progress through the cinema, and the understated emotional situation requested by the user.",
+        "Preserve the established context: this is Mara's last night after six years working at the cinema; nine people bought tickets; Ed keeps the ledger and counts the money; Mara has been asked to leave her keys when she finishes.",
+        "Preserve the cleaning sequence and spatial continuity: Mara starts at the front, works up the sloping auditorium, leaves the found umbrella beside the aisle in the fourth row, finishes the last row after Ed's reminder, returns for it, and takes it and the sack to the lobby.",
+        "Preserve the umbrella's blue fabric, loose rib, wooden handle, and PATEL label; the owner is not identified, and Mara only partly recalls the audience. Do not turn the umbrella into a known person's possession or give it a new narrative history.",
+        "Retain June's practical lesson from Mara's first evening and the stated reason June left; preserve a meaningful return to the row-by-row practice as part of Mara's present routine and the scene's closing movement.",
+        "Keep the distinct faults at H12 and H13, Mara's unsuccessful attempt to turn the screw farther, her later report to Ed, and his writing the seat numbers on an envelope.",
+        "Preserve the departure sequence: Mara discards the collected rubbish, leaves the umbrella with the other umbrellas, returns her keys, sees the bus, watches the seats disappear into darkness as Ed switches off the auditorium lights, and leaves with her hood up.",
+        "Do not invent why Mara is leaving, who replaces her, a cinema closure, an explicit conflict or romance with Ed, or private thoughts belonging to another character."
+      ],
+      "quality_targets": [
+        "Improve repetitive or cumbersome local passages, particularly the sack actions, duplicated seat-fault introductions, the description of having to return through the checked section, and the explanation of the expected sound of the keys.",
+        "Distinguish repetition that builds routine, memory, and the ending from accidental repetition that merely restates an action; avoid mechanically deleting every recurring construction or preserving every one.",
+        "Maintain paragraph-to-paragraph continuity of the umbrella, sack, keys, seat faults, envelope, and Mara's position in the building while improving the prose.",
+        "Preserve the mixture of practical attention, dry observation, sensory detail, and Mara's small moments of hesitation without explaining them as a named emotional condition.",
+        "Let sentence rhythm vary with the work and pauses, and preserve useful longer sentences and paragraph movement rather than compressing the scene into an outline.",
+        "Keep the final disappearance of the seats into darkness connected to the auditorium lights and the established row-by-row motif, without adding an interpretation of what the ending means."
+      ],
+      "acceptable_variations": [
+        "The row-by-row motif may retain its exact words or be handled through equivalent recurring language or rhythm, provided its practical and structural functions remain perceptible.",
+        "Nearby sentences and paragraph boundaries may be adjusted when object placement, chronology, viewpoint, and the scene's unhurried movement remain coherent.",
+        "Individual minor cleaning actions or repeated explanations can be condensed when their relevant facts and scene functions remain available; the edit is not required to preserve every phrase.",
+        "The degree of local smoothing may vary. Good revisions can remain close to the original or make more substantial sentence-level repairs without adding scenes, resolving ambiguity, or targeting a fixed reduction in length."
+      ]
+    },
+    {
+      "id": "14-sunday-opening",
+      "title": "Sunday at the museum",
+      "prompt_file": "prompts/14-sunday-opening.md",
+      "requirements": [
+        "Return the edited passage, using the supplied sample as a guide to plain, observant restraint and dry humour rather than importing its characters, setting, events, first-person viewpoint, or exact sentence patterns.",
+        "Preserve third-person present-tense narration centred on Vera and the Sunday opening routine at the museum.",
+        "Preserve the clock's being eleven minutes fast and Vera's private preference for it to be slow; do not silently correct the clock, its timing, or the joke.",
+        "Keep the postcard from Vera's brother, the castle dominating its photograph, his recurring claim that she would like the places he visits, and the airport-hotel food-poisoning example.",
+        "Retain the model railway, fallen sheep, Vera's placing the sheep upright outside the fence, and the final visitor's question at ten past ten.",
+        "Keep the passage's small interpretive openings, including Vera's preference about time and her treatment of the sheep, without inventing loneliness, resentment, a plan to travel, or a reason for the brother's absence."
+      ],
+      "quality_targets": [
+        "Apply a proportionate light edit: the passage is largely effective, while the bureaucratic phrasing around removing the dust sheet is a local opportunity for improvement.",
+        "Preserve the dry humour created by the redundant OPEN sign, the fast clock, the town as a rumour, the brother's indiscriminate recommendation, and the final visitor's question.",
+        "Maintain the existing observational ease and varied sentence lengths; do not force all sentences towards the sample's syntax or add conspicuous jokes and flourishes.",
+        "Let the sheep's apparent intention remain a small, lightly personified observation rather than spelling out a symbolic connection to Vera or her brother."
+      ],
+      "acceptable_variations": [
+        "A small number of justified changes can be sufficient; effective sentences and paragraph order may remain as supplied.",
+        "The dust-sheet action may be phrased in several ordinary ways, and other local changes are acceptable when they improve ease without shifting voice or story facts.",
+        "A revision may be slightly shorter, similar in length, or slightly longer. Neither copying the passage unchanged nor making numerous edits is an automatic measure of quality."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "asus-anime-matrix",
+  "version": "0.1.2",
+  "description": "Create, preview and validate model-specific ASUS AniMe Matrix animations, with optional authorized hardware playback.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "ASUS AniMe Matrix",
+        "shortDescription": "Create AniMe Matrix animations",
+        "composerIcon": "./skills/asus-anime-matrix/assets/icon.png",
+        "logo": "./skills/asus-anime-matrix/assets/icon.svg"
+      }
+    }
+  }
+}

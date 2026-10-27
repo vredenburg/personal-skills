@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "naturalise-prose",
+  "version": "0.1.2",
+  "description": "Revise formulaic prose while preserving meaning, evidence, voice and formatting.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Naturalise prose",
+        "shortDescription": "Revise prose, preserve voice",
+        "composerIcon": "./skills/naturalise-prose/assets/icon.png",
+        "logo": "./skills/naturalise-prose/assets/icon.svg"
+      }
+    }
+  }
+}

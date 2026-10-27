@@ -1,0 +1,44 @@
+{
+  "name": "personal-skills",
+  "interface": {
+    "displayName": "Personal skills"
+  },
+  "plugins": [
+    {
+      "name": "spec-driven-workflow",
+      "source": {
+        "source": "local",
+        "path": "./plugins/spec-driven-workflow"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "naturalise-prose",
+      "source": {
+        "source": "local",
+        "path": "./plugins/naturalise-prose"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "asus-anime-matrix",
+      "source": {
+        "source": "local",
+        "path": "./plugins/asus-anime-matrix"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
