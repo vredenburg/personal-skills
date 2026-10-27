@@ -8,17 +8,13 @@ The collection contains these skills:
 
 - [naturalise-prose](skills/naturalise-prose/SKILL.md) removes formulaic prose while preserving meaning, evidence, voice, register, and deliberate style. It includes a [supporting editorial rubric](skills/naturalise-prose/references/editorial-rubric.md), [fiction editing guidance](skills/naturalise-prose/references/fiction-editing.md), and a [behavioral evaluation suite](skills/naturalise-prose/evals/guide.md).
 - [asus-anime-matrix](skills/asus-anime-matrix/SKILL.md) creates, previews, validates, and optionally plays ASUS AniMe Matrix animations using verified model geometry. It includes reusable scripts, adaptive battery tooling, and a GA402 profile and LED mask. Generated animations and mascot packs are not included; adaptive playback requires a user-created pack.
-- [spec-driven-workflow](skills/spec-driven-workflow/SKILL.md) provides a specification-driven workflow with bounded delegation, milestone direction, handoffs and proportionate verification. **Version 0.1.5 accepted by the owner on 2026-10-27. Installation and project adoption are separate decisions.**
+- [spec-driven-workflow](skills/spec-driven-workflow/SKILL.md) provides a specification-driven workflow with bounded delegation, milestone direction, handoffs and proportionate verification.
 
 ## Global instruction template
 
-The [Codex global instruction template](instructions/codex-AGENTS.md) is an optional companion: it provides personal defaults across projects and guidance on when to use the skill. The skill contains the detailed workflow and works independently. Their source directories are intentionally separate; the global instructions require their own explicit installation. Installing or updating the skill does not apply them.
+The [Codex global instruction template](instructions/codex-AGENTS.md) is an optional companion: it provides personal defaults across projects and guidance on when to use the skill. The skill contains the detailed workflow and works independently. Install the template separately by merging the relevant guidance into your personal Codex instructions. Installing or updating the skill does not apply it. The `codex-` filename prefix identifies the intended host; this file is a template for Codex personal instructions, not a Claude Code configuration file.
 
-The distribution build includes the template at `instructions/codex-AGENTS.md`, alongside the marketplace and outside all plugin bundles. After the next publication, it will be available as the [distribution copy](https://github.com/vredenburg/personal-skills/blob/plugin-dist/instructions/codex-AGENTS.md). Downloading or updating the marketplace does not apply it as global instructions.
-
-The template's wording was accepted with version 0.1.5 on 2026-10-27; it is not installed or active. Updating this source does not change active global settings. Acceptance, installation and project adoption are separate decisions.
-
-The extraction, review and pilot history remains in [Project Hex's review record](../project-hex/docs/work/workflow-extraction-review/README.md), linked through a sibling checkout. Isolation work is parked. Moving these sources does not change Hex's accepted workflow or resolve the recorded pilot limitations.
+The distribution build includes the template at `instructions/codex-AGENTS.md`, alongside the marketplace and outside all plugin bundles. It is available as the [distribution copy](https://github.com/vredenburg/personal-skills/blob/plugin-dist/instructions/codex-AGENTS.md). Downloading or updating the marketplace does not apply it as global instructions.
 
 ## Install and update
 
@@ -103,4 +99,4 @@ Skills need a harness that loads `SKILL.md` and reads its relative supporting fi
 
 The existing naturalise-prose and asus-anime-matrix skills and their repository documentation are licensed under the [MIT License](LICENSE). Both skill directories include copies for standalone installations.
 
-The workflow retains its source project's [selected MIT policy](../project-hex/docs/workflows/licensing-and-distribution.md#code-and-documentation). Copyright attribution and a standalone notice remain unresolved; this source transfer adds no license file or licensing decision.
+The spec-driven-workflow skill does not yet include a standalone license notice; its copyright attribution remains unresolved.

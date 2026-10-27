@@ -14,7 +14,7 @@ The JSON files here are build inputs. The skill directories remain authoritative
 
 [marketplace.json](marketplace.json) owns catalog membership and names. Each `plugins/<name>/plugin.json` owns its version and description. The build derives Claude manifests and catalog entries from those inputs; [claude-marketplace-metadata.json](claude-marketplace-metadata.json) supplies only Claude’s required marketplace owner and its description. There is no second plugin list to maintain.
 
-The optional [global instruction template](../instructions/codex-AGENTS.md) is included at `instructions/codex-AGENTS.md` in the distribution root, outside every plugin bundle. It requires separate installation. Packaging or installing the workflow plugin does not adopt the workflow in a project or change Project Hex's accepted policy.
+The optional [global instruction template](../instructions/codex-AGENTS.md) is included at `instructions/codex-AGENTS.md` in the distribution root, outside every plugin bundle. It requires separate installation. Installing a plugin does not apply the template to global instructions.
 
 ## Build and check
 
@@ -63,7 +63,7 @@ The workflow only updates `plugin-dist`; it does not maintain the original branc
 
 ## Maintenance and validation limits
 
-Edit skills under `skills/<name>/`, plugin metadata under `plugins/<name>/plugin.json`, and catalog membership in [marketplace.json](marketplace.json). Rebuild after changing any input. The portable manifests own versions for both hosts; use SemVer, including prerelease or build suffixes when appropriate. This packaging does not alter skill invocation policies or workflow acceptance.
+Edit skills under `skills/<name>/`, plugin metadata under `plugins/<name>/plugin.json`, and catalog membership in [marketplace.json](marketplace.json). Rebuild after changing any input. The portable manifests own versions for both hosts; use SemVer, including prerelease or build suffixes when appropriate. Packaging preserves skill invocation policies.
 
 Local build checks establish package completeness, source fidelity and deterministic Claude metadata, with basic manifest checks. They require a nonempty version string but do not perform full schema or SemVer validation. They do not establish host discovery, installation or agent behavior.
 
@@ -71,6 +71,4 @@ Both the original Codex distribution and the combined Codex/Claude packages pass
 
 The generated Claude manifests omit optional `author` metadata because it is not declared in the source manifests. Claude documents this as a warning, which fails validation with `--strict`; it is not a loading error. Do not infer skill authorship from the marketplace owner or invent attribution to suppress the warning.
 
-The [workflow review and pilot record](../../project-hex/docs/work/workflow-extraction-review/README.md) retains its existing limitations; isolation work remains parked. No host activation is part of packaging validation.
-
-Existing skill license files are copied with their skills. The workflow's [unresolved attribution and standalone notice](../README.md#license) remain unresolved; no new license declaration is added.
+Existing skill license files are copied with their skills. See the [license information](../README.md#license) for coverage and limitations.
