@@ -1,0 +1,5 @@
+interface:
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  display_name: "Specification-driven workflow"
+  short_description: "Specify, plan and deliver scoped work"

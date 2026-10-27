@@ -46,7 +46,7 @@ Skills need a harness that loads `SKILL.md` and reads its relative supporting fi
 
 | Harness | Compatibility |
 | --- | --- |
-| Codex | Skills use `SKILL.md`; the existing naturalise-prose and asus-anime-matrix skills also provide `agents/openai.yaml` metadata. The workflow skill has no UI metadata file. |
+| Codex | Skills use `SKILL.md`; all three include `agents/openai.yaml` metadata and matching icons, also used in their plugin listings. |
 | Other harnesses | Require support for `SKILL.md` and relative supporting files. Metadata, invocation policy, and discovery paths depend on the harness. |
 
 ## Manual installation and updating

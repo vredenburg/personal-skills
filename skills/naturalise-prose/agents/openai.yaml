@@ -1,4 +1,6 @@
 interface:
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
   display_name: "Naturalise prose"
   short_description: "Revise prose without flattening its voice"
   default_prompt: "Use $naturalise-prose to revise this text while preserving its meaning and voice."
