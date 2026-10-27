@@ -1,7 +1,5 @@
 # Personal agent instructions
 
-Version `0.1.5` accepted by the owner (human) on 2026-10-27. Acceptance covers the wording only; this source template is not installed or active. Remove this status paragraph when explicitly installing it as personal instructions.
-
 ## Authority
 
 - Read applicable repository instructions and relevant accepted sources; inspect current changes and preserve unrelated work.
