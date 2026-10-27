@@ -1,0 +1,24 @@
+{
+  "name": "personal-skills",
+  "owner": {
+    "name": "vredenburg"
+  },
+  "description": "Personal agent skills, available as individually selectable plugins.",
+  "plugins": [
+    {
+      "name": "spec-driven-workflow",
+      "source": "./plugins/spec-driven-workflow",
+      "description": "Specification-driven development with scoped authorization, proportionate planning, bounded delegation and milestone direction."
+    },
+    {
+      "name": "naturalise-prose",
+      "source": "./plugins/naturalise-prose",
+      "description": "Revise formulaic prose while preserving meaning, evidence, voice and formatting."
+    },
+    {
+      "name": "asus-anime-matrix",
+      "source": "./plugins/asus-anime-matrix",
+      "description": "Create, preview and validate model-specific ASUS AniMe Matrix animations, with optional authorized hardware playback."
+    }
+  ]
+}
