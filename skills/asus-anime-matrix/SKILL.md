@@ -8,6 +8,18 @@ description: Create, adapt, preview, validate, and optionally play ASUS AniMe Ma
 Build artwork for the LEDs that actually exist, not for an assumed rectangular
 canvas. Preserve the user's originals and make output filenames model-specific.
 
+## Runtime requirements
+
+Rendering and validation need Bash 4+, ImageMagick 7 (`magick`), and a
+GNU-compatible `realpath` supporting `-m` (provided by GNU coreutils). Ensure
+these commands resolve through `PATH`; macOS's bundled Bash and `realpath`
+do not meet these requirements.
+
+Live playback additionally requires Linux, compatible ASUS AniMe Matrix
+hardware, `asusctl` with its daemon, and systemd user services. The adaptive
+controller also needs Python 3 (standard library only) and reads Linux
+power-supply information.
+
 ## Model profiles
 
 Run `scripts/detect-anime-model.sh` before choosing geometry, then confirm the

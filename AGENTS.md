@@ -6,6 +6,7 @@
 - Adding or editing a skill must not install or enable it, update installed copies, or change active harness configuration. Handle installation only when requested, selecting individual skills for the intended machine and harness.
 - Keep changes small and scoped to the request. Add installation automation, machine profiles, or additional skills only when requested.
 - Keep the README focused on human-facing collection information, prerequisites, installation, updating, and usage. Put repository maintenance instructions here and skill-specific workflows in the relevant skill. Keep documentation portable and focused on ongoing use.
+- Maintain plugin metadata under `plugins/` and build with `scripts/build_plugins.py`. Keep generated packages under ignored `dist/`; do not edit those copies or include `instructions/`. Building does not authorize marketplace registration, installation or activation.
 - Check changed skill metadata and local references. When copying a skill, include all supporting files and verify the complete copy against its source. Report pre-existing issues separately instead of silently changing the skill.
 - Do not commit, push, publish, or add a license without an explicit request.
 

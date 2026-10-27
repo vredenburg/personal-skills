@@ -17,6 +17,12 @@ The template's wording was accepted with version 0.1.5 on 2026-10-27; it is not 
 
 The extraction, review and pilot history remains in [Project Hex's review record](../project-hex/docs/work/workflow-extraction-review/README.md), linked through a sibling checkout. Isolation work is parked. Moving these sources does not change Hex's accepted workflow or resolve the recorded pilot limitations.
 
+## Plugin packaging
+
+The three skills can also be built as independently selectable plugins. See [plugin packaging](plugins/README.md) for the catalog, build commands and later installation procedure. Canonical skills stay in `skills/`; complete packages are generated under ignored `dist/personal-skills/`.
+
+Packaging leaves the global instruction template separate and does not register, install or enable anything. Standalone skill installation remains available. Host discovery and installation have not been tested.
+
 ## Install and manage skills with an agent
 
 Open this repository in an agent with filesystem access to the target machine, or give the agent the checkout path. Ask it to read [AGENTS.md](AGENTS.md) and manage the skills you choose. For example:
@@ -34,7 +40,7 @@ Once installed in Codex, invoke the selected skill with `$naturalise-prose` or `
 Skills need a harness that loads `SKILL.md` and reads its relative supporting files. Model access and task tools depend on the harness. The optional manual commands below require a Unix shell, `rsync`, and `diff`.
 
 - **naturalise-prose:** Text files only, with no scripts, package dependencies, required connectors, credentials, or hardware requirements.
-- **asus-anime-matrix:** Bash and ImageMagick 7 (`magick`) for rendering and validation; Python 3 (standard library only) for the adaptive controller. Live playback additionally requires compatible ASUS AniMe Matrix hardware, `asusctl` with its daemon, and systemd user services. Adaptive mode reads Linux power-supply information. Only GA402 geometry is currently included; offline rendering can select that verified profile explicitly. Creating artwork does not start playback.
+- **asus-anime-matrix:** See the skill's [runtime requirements](skills/asus-anime-matrix/SKILL.md#runtime-requirements) for Bash 4+, ImageMagick 7, GNU-compatible `realpath`, and playback dependencies. Only GA402 geometry is currently included; offline rendering can select that verified profile explicitly. Creating artwork does not start playback.
 
 - **spec-driven-workflow:** Instructions, references and templates only; no scripts, package dependencies or required connectors.
 

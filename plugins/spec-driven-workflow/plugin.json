@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "spec-driven-workflow",
+  "version": "0.1.5",
+  "description": "Specification-driven development with scoped authorization, proportionate planning, bounded delegation and milestone direction.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Specification-driven workflow",
+        "shortDescription": "Specify, plan and deliver"
+      }
+    }
+  }
+}
