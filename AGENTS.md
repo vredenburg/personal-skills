@@ -8,6 +8,7 @@
 - Keep the README focused on human-facing collection information, prerequisites, installation, updating, and usage. Put repository maintenance instructions here and skill-specific workflows in the relevant skill. Keep documentation portable and focused on ongoing use.
 - Maintain plugin metadata under `plugins/` and build with `scripts/build_plugins.py`. Keep generated packages under ignored `dist/`; do not edit those copies or include `instructions/`. Building does not authorize marketplace registration, installation or activation.
 - Check changed skill metadata and local references. When copying a skill, include all supporting files and verify the complete copy against its source. Report pre-existing issues separately instead of silently changing the skill.
+- Keep distribution logic in `.github/workflows/distribute-plugins.yml`. Validate publication changes against a disposable local Git remote; do not run them against the live remote or rebuild the registered local catalog unless the task authorizes that.
 - Do not commit, push, publish, or add a license without an explicit request.
 
 ## Managing requested installations

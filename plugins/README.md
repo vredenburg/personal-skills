@@ -44,9 +44,35 @@ The packages use the portable Agent Plugins manifest format described in [OpenAI
 
 Building does not register the catalog, install or enable plugins, upload packages, or change harness settings. The source catalog stays at `plugins/marketplace.json`, outside active discovery locations. The generated catalog is inside ignored build output; do not register the source checkout as a marketplace because its plugin directories contain metadata only.
 
-For a later authorized installation, use `dist/personal-skills/` as the local marketplace root and select the desired plugins through the target host's supported flow. Check that host's format support first. Registering a remote copy of this repository alone is not supported by this layout: the generated packages must be built and made available on that machine. Publication and remote distribution remain separate work.
+For a local installation, use `dist/personal-skills/` as the marketplace root. For installation from GitHub, use the generated distribution branch described below, once it has been published. The `master` branch contains authoring sources and is not itself an installable marketplace.
 
 Choose either the standalone skill or the plugin containing it for a given harness to avoid duplicate discovery. Existing standalone installations are not migrated by the build. The ASUS plugin retains its [hardware and runtime prerequisites](../README.md#prerequisites-and-compatibility); packaging does not install them or run hardware commands.
+
+## Distribution from GitHub
+
+The [Distribute plugins workflow](../.github/workflows/distribute-plugins.yml) builds and checks packages after pushes to `master`. It can also be dispatched manually from `master`. Once this workflow is committed and pushed, successful runs publish the generated catalog and complete plugin directories to `codex/plugin-dist` in the same repository. Adding the workflow locally does not publish anything.
+
+The distribution branch has `.agents/plugins/marketplace.json` and `plugins/<name>/` at its root. It contains no global instruction template, source workflow, build tooling or project history. Author skills on `master`; do not edit the generated branch manually. The initial publication creates an independent history, later publications append commits, and identical packages produce no commit. Each publication commit identifies its source revision.
+
+Runs are serialized, check out current `master`, and skip publication if `master` has advanced during the build. Pushes use normal fast-forward checks; they never force-push. Build or verification failures stop publication and leave the last distribution available. The job uses the repository's `GITHUB_TOKEN` with `contents: write`; repository settings and branch rules must permit it to create and update `codex/plugin-dist`. No extra secret or dependency installation is required on the GitHub-hosted Ubuntu runner.
+
+After the first successful publication, a new device can register the distribution branch and select a plugin:
+
+```sh
+codex plugin marketplace add git@github.com:vredenburg/personal-skills.git --ref codex/plugin-dist
+codex plugin add spec-driven-workflow@personal-skills
+```
+
+Git access must work on that device; SSH is shown to match this repository's remote. The same marketplace name is used locally and remotely. On a device already using the local `personal-skills` catalog, deliberately migrate that registration before adding the Git source; do not create a second installation. This setup does not perform that migration.
+
+After publishing later changes, refresh and apply the update on each device:
+
+```sh
+codex plugin marketplace upgrade personal-skills
+codex plugin add spec-driven-workflow@personal-skills
+```
+
+Publishing makes updates available; it does not push installations to devices or change global instructions. Bump the affected plugin's manifest version when changing its packaged content. See the [Codex CLI reference](https://learn.chatgpt.com/docs/cli/reference) for marketplace registration and refresh commands.
 
 ## Maintenance and validation limits
 

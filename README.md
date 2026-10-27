@@ -21,7 +21,7 @@ The extraction, review and pilot history remains in [Project Hex's review record
 
 The three skills can also be built as independently selectable plugins. See [plugin packaging](plugins/README.md) for the catalog, build commands and later installation procedure. Canonical skills stay in `skills/`; complete packages are generated under ignored `dist/personal-skills/`.
 
-Packaging leaves the global instruction template separate and does not register, install or enable anything. Standalone skill installation remains available. Host discovery and installation have not been tested.
+Packaging leaves the global instruction template separate and does not register, install or enable anything. Standalone skill installation remains available. The [distribution workflow](.github/workflows/distribute-plugins.yml) is configured to publish complete packages to `codex/plugin-dist` after pushes to `master`; see the [distribution instructions](plugins/README.md#distribution-from-github) for setup and per-device updates. Local workflow-plugin discovery has been verified; the GitHub-hosted distribution run and Git-backed installation remain unverified.
 
 ## Install and manage skills with an agent
 

@@ -1,0 +1,80 @@
+name: Distribute plugins
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: distribute-personal-skills
+  cancel-in-progress: false
+
+jobs:
+  distribute:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Check out current source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # A rerun of an older workflow must not republish older source.
+          ref: master
+          fetch-depth: 1
+
+      - name: Build packages
+        run: python3 scripts/build_plugins.py
+
+      - name: Verify packages
+        run: python3 scripts/build_plugins.py --check
+
+      - name: Publish distribution branch
+        shell: bash
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          set -euo pipefail
+          source_sha="$(git rev-parse HEAD)"
+          package_root="$PWD/dist/personal-skills"
+          branch_ref="refs/heads/codex/plugin-dist"
+
+          # Stage only generated output, without changing the source index or HEAD.
+          index_dir="$(mktemp -d)"
+          trap 'rm -rf "$index_dir"' EXIT
+          export GIT_INDEX_FILE="$index_dir/index"
+          git read-tree --empty
+          git --work-tree="$package_root" add --force --all
+          tree="$(git write-tree)"
+
+          previous=""
+          remote_branch="$(git ls-remote --heads origin "$branch_ref")"
+          if [[ -n "$remote_branch" ]]; then
+            git fetch --no-tags --depth=1 origin "$branch_ref"
+            previous="$(git rev-parse FETCH_HEAD)"
+            if [[ "$tree" == "$(git rev-parse "$previous^{tree}")" ]]; then
+              echo "Distribution already matches the packages; nothing to publish."
+              exit 0
+            fi
+          fi
+
+          current_source="$(git ls-remote --heads origin refs/heads/master | cut -f1)"
+          if [[ "$current_source" != "$source_sha" ]]; then
+            echo "master advanced during this run; a newer run will publish."
+            exit 0
+          fi
+
+          if [[ -n "$previous" ]]; then
+            commit="$(git -c commit.gpgsign=false commit-tree "$tree" -p "$previous" -m "Build plugins from $source_sha")"
+          else
+            commit="$(git -c commit.gpgsign=false commit-tree "$tree" -m "Build plugins from $source_sha")"
+          fi
+          # Preserve distribution history. A conflicting update fails without overwriting it.
+          git push origin "$commit:$branch_ref"
