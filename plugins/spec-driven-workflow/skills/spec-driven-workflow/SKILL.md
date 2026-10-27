@@ -1,8 +1,6 @@
 ---
 name: spec-driven-workflow
 description: Adopt or adapt a specification-driven development workflow, or specify, plan, review and deliver scoped work in a project that has adopted it. Does not impose the process on unrelated repositories or ordinary questions.
-metadata:
-  version: "0.1.5"
 ---
 
 # Specification-driven development
