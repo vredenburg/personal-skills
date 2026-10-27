@@ -1,11 +1,21 @@
 # Personal agent skills
 
-This repository holds the maintained source versions of my personal agent skills. Each skill lives in `skills/<name>/` and can be installed and updated independently on each machine and agent harness.
+This repository holds the maintained source versions of my personal agent skills and global instruction templates. Each skill lives in `skills/<name>/` and can be installed and updated independently on each machine and agent harness. Instruction templates live in `instructions/`; they do not replace this repository's own `AGENTS.md` or active personal instructions.
 
-The collection contains two skills:
+The collection contains these skills:
 
 - [naturalise-prose](skills/naturalise-prose/SKILL.md) removes formulaic prose while preserving meaning, evidence, voice, register, and deliberate style. It includes a [supporting editorial rubric](skills/naturalise-prose/references/editorial-rubric.md), [fiction editing guidance](skills/naturalise-prose/references/fiction-editing.md), and a [behavioral evaluation suite](skills/naturalise-prose/evals/guide.md).
 - [asus-anime-matrix](skills/asus-anime-matrix/SKILL.md) creates, previews, validates, and optionally plays ASUS AniMe Matrix animations using verified model geometry. It includes reusable scripts, adaptive battery tooling, and a GA402 profile and LED mask. Generated animations and mascot packs are not included; adaptive playback requires a user-created pack.
+
+- [spec-driven-workflow](skills/spec-driven-workflow/SKILL.md) provides a specification-driven workflow with bounded delegation, milestone direction, handoffs and proportionate verification. **Version 0.1.5 accepted by the owner on 2026-10-27; not installed or adopted in any project.**
+
+## Global instruction template
+
+The [Codex global instruction template](instructions/codex-AGENTS.md) is an optional companion: it provides personal defaults across projects and guidance on when to use the skill. The skill contains the detailed workflow and works independently. Their source directories are intentionally separate; the global instructions require their own explicit installation. Installing or updating the skill does not apply them.
+
+The template's wording was accepted with version 0.1.5 on 2026-10-27; it is not installed or active. Updating this source does not change active global settings. Acceptance, installation and project adoption are separate decisions.
+
+The extraction, review and pilot history remains in [Project Hex's review record](../project-hex/docs/work/workflow-extraction-review/README.md), linked through a sibling checkout. Isolation work is parked. Moving these sources does not change Hex's accepted workflow or resolve the recorded pilot limitations.
 
 ## Install and manage skills with an agent
 
@@ -21,14 +31,16 @@ Once installed in Codex, invoke the selected skill with `$naturalise-prose` or `
 
 ## Prerequisites and compatibility
 
-Both skills need a harness that loads `SKILL.md` and reads its relative supporting files. Model access and task tools depend on the harness. The optional manual commands below require a Unix shell, `rsync`, and `diff`.
+Skills need a harness that loads `SKILL.md` and reads its relative supporting files. Model access and task tools depend on the harness. The optional manual commands below require a Unix shell, `rsync`, and `diff`.
 
 - **naturalise-prose:** Text files only, with no scripts, package dependencies, required connectors, credentials, or hardware requirements.
 - **asus-anime-matrix:** Bash and ImageMagick 7 (`magick`) for rendering and validation; Python 3 (standard library only) for the adaptive controller. Live playback additionally requires compatible ASUS AniMe Matrix hardware, `asusctl` with its daemon, and systemd user services. Adaptive mode reads Linux power-supply information. Only GA402 geometry is currently included; offline rendering can select that verified profile explicitly. Creating artwork does not start playback.
 
+- **spec-driven-workflow:** Instructions, references and templates only; no scripts, package dependencies or required connectors.
+
 | Harness | Compatibility |
 | --- | --- |
-| Codex | `agents/openai.yaml` supplies UI metadata and permits implicit invocation once installed. |
+| Codex | Skills use `SKILL.md`; the existing naturalise-prose and asus-anime-matrix skills also provide `agents/openai.yaml` metadata. The workflow skill has no UI metadata file. |
 | Other harnesses | Require support for `SKILL.md` and relative supporting files. Metadata, invocation policy, and discovery paths depend on the harness. |
 
 ## Manual installation and updating
@@ -105,4 +117,6 @@ To uninstall a skill from a harness, remove its installed copy and refresh the h
 
 ## License
 
-All repository content, including skill instructions, documentation, reference material, and evaluation files, is licensed under the [MIT License](LICENSE). Each skill directory includes a copy of the license so it accompanies standalone installations.
+The existing naturalise-prose and asus-anime-matrix skills and their repository documentation are licensed under the [MIT License](LICENSE). Both skill directories include copies for standalone installations.
+
+The workflow retains its source project's [selected MIT policy](../project-hex/docs/workflows/licensing-and-distribution.md#code-and-documentation). Copyright attribution and a standalone notice remain unresolved; this source transfer adds no license file or licensing decision.
