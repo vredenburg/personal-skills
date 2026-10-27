@@ -27,10 +27,10 @@ jobs:
           ref: master
           fetch-depth: 1
 
-      - name: Build packages
+      - name: Build Codex and Claude Code packages
         run: python3 scripts/build_plugins.py
 
-      - name: Verify packages
+      - name: Verify Codex and Claude Code packages
         run: python3 scripts/build_plugins.py --check
 
       - name: Publish distribution branch
@@ -44,7 +44,7 @@ jobs:
           set -euo pipefail
           source_sha="$(git rev-parse HEAD)"
           package_root="$PWD/dist/personal-skills"
-          branch_ref="refs/heads/codex/plugin-dist"
+          branch_ref="refs/heads/plugin-dist"
 
           # Stage only generated output, without changing the source index or HEAD.
           index_dir="$(mktemp -d)"

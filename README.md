@@ -7,7 +7,7 @@ The collection contains these skills:
 - [naturalise-prose](skills/naturalise-prose/SKILL.md) removes formulaic prose while preserving meaning, evidence, voice, register, and deliberate style. It includes a [supporting editorial rubric](skills/naturalise-prose/references/editorial-rubric.md), [fiction editing guidance](skills/naturalise-prose/references/fiction-editing.md), and a [behavioral evaluation suite](skills/naturalise-prose/evals/guide.md).
 - [asus-anime-matrix](skills/asus-anime-matrix/SKILL.md) creates, previews, validates, and optionally plays ASUS AniMe Matrix animations using verified model geometry. It includes reusable scripts, adaptive battery tooling, and a GA402 profile and LED mask. Generated animations and mascot packs are not included; adaptive playback requires a user-created pack.
 
-- [spec-driven-workflow](skills/spec-driven-workflow/SKILL.md) provides a specification-driven workflow with bounded delegation, milestone direction, handoffs and proportionate verification. **Version 0.1.5 accepted by the owner on 2026-10-27; not installed or adopted in any project.**
+- [spec-driven-workflow](skills/spec-driven-workflow/SKILL.md) provides a specification-driven workflow with bounded delegation, milestone direction, handoffs and proportionate verification. **Version 0.1.5 accepted by the owner on 2026-10-27. Installation and project adoption are separate decisions.**
 
 ## Global instruction template
 
@@ -19,9 +19,9 @@ The extraction, review and pilot history remains in [Project Hex's review record
 
 ## Plugin packaging
 
-The three skills can also be built as independently selectable plugins. See [plugin packaging](plugins/README.md) for the catalog, build commands and later installation procedure. Canonical skills stay in `skills/`; complete packages are generated under ignored `dist/personal-skills/`.
+The three skills can also be built as independently selectable plugins for Codex and Claude Code, using the same skill files. See [plugin packaging](plugins/README.md) for the catalog, build commands and later installation procedure. Canonical skills stay in `skills/`; complete packages are generated under ignored `dist/personal-skills/`.
 
-Packaging leaves the global instruction template separate and does not register, install or enable anything. Standalone skill installation remains available. The [distribution workflow](.github/workflows/distribute-plugins.yml) is configured to publish complete packages to `codex/plugin-dist` after pushes to `master`; see the [distribution instructions](plugins/README.md#distribution-from-github) for setup and per-device updates. Local workflow-plugin discovery has been verified; the GitHub-hosted distribution run and Git-backed installation remain unverified.
+Packaging leaves the global instruction template separate and does not register, install or enable anything. Standalone skill installation remains available. The [distribution workflow](.github/workflows/distribute-plugins.yml) is configured to publish complete packages to `plugin-dist` after pushes to `master`; see the [distribution instructions](plugins/README.md#distribution-from-github) for setup and per-device updates. Local Codex workflow-plugin discovery and the initial GitHub-hosted distribution run have been verified. The build generates metadata for both Codex and Claude Code. Claude’s native validator, runtime discovery and Git-backed host installation remain unverified.
 
 ## Install and manage skills with an agent
 
@@ -47,6 +47,7 @@ Skills need a harness that loads `SKILL.md` and reads its relative supporting fi
 | Harness | Compatibility |
 | --- | --- |
 | Codex | Skills use `SKILL.md`; all three include `agents/openai.yaml` metadata and matching icons, also used in their plugin listings. |
+| Claude Code | Generated Claude marketplace and plugin manifests use the same `SKILL.md` sources. Packaging is checked locally; Claude validation and runtime discovery are pending. See [plugin packaging](plugins/README.md). |
 | Other harnesses | Require support for `SKILL.md` and relative supporting files. Metadata, invocation policy, and discovery paths depend on the harness. |
 
 ## Manual installation and updating

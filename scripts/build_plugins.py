@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build or check local plugin packages without registering or installing them."""
+"""Build or check Codex and Claude Code packages without activating either."""
 
 import argparse
 import json
@@ -31,6 +31,19 @@ def package_files():
     catalog_file = "plugins/marketplace.json"
     catalog = json.loads(source_file(catalog_file)[0])
     expected = {".agents/plugins/marketplace.json": source_file(catalog_file)}
+    claude_metadata = json.loads(source_file("plugins/claude-marketplace-metadata.json")[0])
+    if not isinstance(claude_metadata.get("owner"), dict) or not isinstance(
+        claude_metadata["owner"].get("name"), str
+    ) or not claude_metadata["owner"]["name"].strip():
+        raise ValueError("Claude marketplace metadata requires an owner name")
+    if not isinstance(claude_metadata.get("description"), str) or not claude_metadata["description"].strip():
+        raise ValueError("Claude marketplace metadata requires a description")
+    claude_catalog = {
+        "name": catalog["name"],
+        "owner": claude_metadata["owner"],
+        "description": claude_metadata["description"],
+        "plugins": [],
+    }
     names = set()
     for entry in catalog["plugins"]:
         name = entry["name"]
@@ -50,6 +63,20 @@ def package_files():
         if not isinstance(version, str) or not version.strip():
             raise ValueError(f"Expected a nonempty version string: {manifest_file}")
         expected[manifest_file] = source_file(manifest_file)
+        description = manifest.get("description")
+        if not isinstance(description, str) or not description.strip():
+            raise ValueError(f"Expected a description: {manifest_file}")
+        # Both hosts use this same skill tree; only discovery metadata differs.
+        expected[f"{prefix}/.claude-plugin/plugin.json"] = json_file({
+            "name": name,
+            "version": version,
+            "description": description,
+        })
+        claude_catalog["plugins"].append({
+            "name": name,
+            "source": f"./{prefix}",
+            "description": description,
+        })
         skill = f"skills/{name}/"
         listed = subprocess.check_output(
             ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z", "--", skill],
@@ -66,7 +93,12 @@ def package_files():
             expected[f"{prefix}/{relative}"] = source_file(relative)
     if not names:
         raise ValueError("The catalog must contain at least one plugin")
+    expected[".claude-plugin/marketplace.json"] = json_file(claude_catalog)
     return expected, names
+
+
+def json_file(value):
+    return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode(), 0o644
 
 
 def verify(directory, expected):
