@@ -8,6 +8,8 @@ This catalog packages the existing skills as three independently selectable plug
 | Naturalise prose | [naturalise-prose](../skills/naturalise-prose/SKILL.md) |
 | ASUS AniMe Matrix | [asus-anime-matrix](../skills/asus-anime-matrix/SKILL.md) |
 
+For per-device installation and updates, use the [main README](../README.md#install-and-update).
+
 The JSON files here are build inputs. The skill directories remain authoritative and can still be installed independently. Both hosts share one complete copy of each skill in the generated package; the build adds host-specific discovery metadata without rewriting skill files or using symlinks.
 
 [marketplace.json](marketplace.json) owns catalog membership and names. Each `plugins/<name>/plugin.json` owns its version and description. The build derives Claude manifests and catalog entries from those inputs; [claude-marketplace-metadata.json](claude-marketplace-metadata.json) supplies only Claude’s required marketplace owner and its description. There is no second plugin list to maintain.
@@ -42,11 +44,7 @@ Claude loads `skills/<name>/SKILL.md`; it does not use `agents/openai.yaml` for 
 
 ## Installation remains separate
 
-Building does not register the catalog, install or enable plugins, upload packages, or change harness settings. The authoring catalog stays at `plugins/marketplace.json`, outside active discovery locations; the Claude catalog exists only in generated output. The generated catalog is inside ignored build output; do not register the source checkout as a marketplace because its plugin directories contain metadata only.
-
-For a local installation, use `dist/personal-skills/` as the marketplace root. For installation from GitHub, use the generated distribution branch described below, once it has been published. The `master` branch contains authoring sources and is not itself an installable marketplace.
-
-Choose either the standalone skill or the plugin containing it for a given harness to avoid duplicate discovery. Existing standalone installations are not migrated by the build. The ASUS plugin retains its [hardware and runtime prerequisites](../README.md#prerequisites-and-compatibility); packaging does not install them or run hardware commands.
+Building does not register a catalog, install or enable plugins, upload packages, or change harness settings. The source checkout contains authoring metadata; installation uses the generated `plugin-dist` branch through the [commands in the main README](../README.md#install-and-update). The ASUS plugin retains its [hardware and runtime prerequisites](../README.md#prerequisites-and-compatibility); packaging does not install them or run hardware commands.
 
 ## Distribution from GitHub
 
@@ -60,47 +58,7 @@ Runs are serialized, check out current `master`, and skip publication if `master
 
 The first Codex-only publication is on `codex/plugin-dist`. The new `plugin-dist` branch was seeded at its tip, `4a4e73d50b3b2f6641afa0c249679d16ebbd5a51`, preserving distribution history. The updated workflow appends combined packages to `plugin-dist`; the original branch remains available at its existing revision.
 
-The verified Codex installation uses the local `dist/personal-skills/` catalog and does not depend on either Git branch. Other devices have not been checked. If any device registered `codex/plugin-dist`, migrate that registration explicitly before retiring the old branch. The workflow only updates `plugin-dist`; it does not rename, delete or maintain an alias for the original branch. Seeding the new branch did not migrate any installation.
-
-### Codex installation after publication
-
-After `plugin-dist` has been published, a new device can register it and select a plugin:
-
-```sh
-codex plugin marketplace add git@github.com:vredenburg/personal-skills.git --ref plugin-dist
-codex plugin add spec-driven-workflow@personal-skills
-```
-
-Git access must work on that device; SSH is shown to match this repository's remote. The same marketplace name is used locally and remotely. On a device already using the local `personal-skills` catalog, deliberately migrate that registration before adding the Git source; do not create a second installation. This setup does not perform that migration.
-
-After publishing later changes, refresh and apply the update on each device:
-
-```sh
-codex plugin marketplace upgrade personal-skills
-codex plugin add spec-driven-workflow@personal-skills
-```
-
-Publishing makes updates available; it does not push installations to devices or change global instructions. Bump the affected plugin's manifest version when changing its packaged content. See the [Codex CLI reference](https://learn.chatgpt.com/docs/cli/reference) for marketplace registration and refresh commands.
-
-## Claude Code installation after publication
-
-These commands are for a later, explicitly requested installation, after the Claude packaging has been published:
-
-```sh
-claude plugin marketplace add 'vredenburg/personal-skills#plugin-dist'
-claude plugin install spec-driven-workflow@personal-skills --scope user
-```
-
-To update that selected plugin later:
-
-```sh
-claude plugin marketplace update personal-skills
-claude plugin update spec-driven-workflow@personal-skills --scope user
-```
-
-In a Claude Code session, invoke `/spec-driven-workflow:spec-driven-workflow`. Custom Git marketplaces have automatic updates disabled by default; enable them per device through `/plugin` → Marketplaces only if desired. Restart the session or run `/reload-plugins` to load an updated version. See [Claude’s installation and update guide](https://code.claude.com/docs/en/discover-plugins).
-
-Codex and Claude keep separate registrations and installed copies. Installing in one does not configure the other. Neither package includes global instructions or a `CLAUDE.md`; installing a plugin does not adopt its workflow in a project.
+The workflow only updates `plugin-dist`; it does not maintain the original branch as an alias. Git-backed Codex installation from `plugin-dist` has been verified. Other devices and Claude Code runtime installation have not been checked. The current per-device commands are maintained in the [main README](../README.md#install-and-update).
 
 ## Maintenance and validation limits
 
@@ -108,7 +66,7 @@ Edit skills under `skills/<name>/`, plugin metadata under `plugins/<name>/plugin
 
 Local build checks establish package completeness, source fidelity and deterministic Claude metadata, with basic manifest checks. They require a nonempty version string but do not perform full schema or SemVer validation. They do not establish host discovery, installation or agent behavior.
 
-The original Codex distribution on `codex/plugin-dist` passed its first GitHub-hosted run. Local validation covered the combined packages and the transition to `plugin-dist` against disposable Git remotes. See the [distribution runs](https://github.com/vredenburg/personal-skills/actions/workflows/distribute-plugins.yml) for current GitHub-hosted publication results. Claude Code is not available in the validation environment, so its authoritative `claude plugin validate` check and runtime discovery remain unverified. When available, validate the generated marketplace and each plugin directory separately before installation.
+Both the original Codex distribution and the combined Codex/Claude packages passed GitHub-hosted publication. Local validation also covered the combined packages and the transition to `plugin-dist` against disposable Git remotes. See the [distribution runs](https://github.com/vredenburg/personal-skills/actions/workflows/distribute-plugins.yml) for current GitHub-hosted publication results. Claude Code is not available in the validation environment, so its authoritative `claude plugin validate` check and runtime discovery remain unverified. When available, validate the generated marketplace and each plugin directory separately before installation.
 
 The generated Claude manifests omit optional `author` metadata because it is not declared in the source manifests. Claude documents this as a warning, which fails validation with `--strict`; it is not a loading error. Do not infer skill authorship from the marketplace owner or invent attribution to suppress the warning.
 
