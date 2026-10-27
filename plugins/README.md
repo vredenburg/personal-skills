@@ -14,7 +14,7 @@ The JSON files here are build inputs. The skill directories remain authoritative
 
 [marketplace.json](marketplace.json) owns catalog membership and names. Each `plugins/<name>/plugin.json` owns its version and description. The build derives Claude manifests and catalog entries from those inputs; [claude-marketplace-metadata.json](claude-marketplace-metadata.json) supplies only Claude’s required marketplace owner and its description. There is no second plugin list to maintain.
 
-The optional [global instruction template](../instructions/codex-AGENTS.md) is excluded from every plugin. It requires separate installation. Packaging or installing the workflow plugin does not adopt the workflow in a project or change Project Hex's accepted policy.
+The optional [global instruction template](../instructions/codex-AGENTS.md) is included at `instructions/codex-AGENTS.md` in the distribution root, outside every plugin bundle. It requires separate installation. Packaging or installing the workflow plugin does not adopt the workflow in a project or change Project Hex's accepted policy.
 
 ## Build and check
 
@@ -25,12 +25,13 @@ python3 scripts/build_plugins.py
 python3 scripts/build_plugins.py --check
 ```
 
-The build replaces only the ignored `dist/personal-skills/` directory. It generates both catalogs and the Claude manifests, then copies existing tracked and non-ignored untracked files from each selected `skills/<name>/` directory, preserving file contents and permissions. Deleted files are excluded without requiring their deletion to be staged; each skill must still have a `SKILL.md`. Ignored local outputs, global instructions and unrelated repository files are excluded. Symlinks are rejected. The check compares copied files with their sources and generated JSON with the expected metadata, rejecting missing, extra or changed files. If this output is already registered as a local marketplace, build in a scratch checkout when an installation must remain unchanged.
+The build replaces only the ignored `dist/personal-skills/` directory. It generates both catalogs and the Claude manifests, then copies existing tracked and non-ignored untracked files from each selected `skills/<name>/` directory, preserving file contents and permissions. Deleted files are excluded without requiring their deletion to be staged; each skill must still have a `SKILL.md`. The build also copies the optional `instructions/codex-AGENTS.md` template to the distribution root. Other instruction files, ignored local outputs and unrelated repository files are excluded. Symlinks are rejected. The check compares copied files with their sources and generated JSON with the expected metadata, rejecting missing, extra or changed files. If this output is already registered as a local marketplace, build in a scratch checkout when an installation must remain unchanged.
 
 ```text
 dist/personal-skills/
 ├── .agents/plugins/marketplace.json       # Codex
 ├── .claude-plugin/marketplace.json        # Claude Code
+├── instructions/codex-AGENTS.md           # Optional template; not installed
 └── plugins/
     └── <name>/                           # One directory per plugin
         ├── plugin.json                   # Codex
@@ -50,7 +51,7 @@ Building does not register a catalog, install or enable plugins, upload packages
 
 The [Distribute plugins workflow](../.github/workflows/distribute-plugins.yml) builds and checks packages after pushes to `master`. It can also be dispatched manually from `master`. Successful runs publish the generated catalogs and complete plugin directories to `plugin-dist` in the same repository. Editing or validating this setup locally publishes nothing.
 
-The generated distribution has `.agents/plugins/marketplace.json`, `.claude-plugin/marketplace.json` and `plugins/<name>/` at its root. Both hosts use the neutral `plugin-dist` branch name. It contains no global instruction template, source workflow, build tooling or project history. Author skills on `master`; do not edit the generated branch manually. The initial publication creates an independent history, later publications append commits, and identical packages produce no commit. Each publication commit identifies its source revision.
+The generated distribution has `.agents/plugins/marketplace.json`, `.claude-plugin/marketplace.json`, `plugins/<name>/` and the optional `instructions/codex-AGENTS.md` template at its root. Both hosts use the neutral `plugin-dist` branch name. It contains no active root `AGENTS.md` or `CLAUDE.md`, source workflow, build tooling or project history. Both catalogs point only into `plugins/`, so installing a plugin does not copy or activate the separate template. Author skills on `master`; do not edit the generated branch manually. The initial publication creates an independent history, later publications append commits, and identical packages produce no commit. Each publication commit identifies its source revision.
 
 Runs are serialized, check out current `master`, and skip publication if `master` has advanced during the build. Pushes use normal fast-forward checks; they never force-push. Build or verification failures stop publication and leave the last distribution available. The job uses the repository's `GITHUB_TOKEN` with `contents: write`; repository settings and branch rules must permit it to create and update `plugin-dist`. No extra secret or dependency installation is required on the GitHub-hosted Ubuntu runner.
 

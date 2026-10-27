@@ -14,6 +14,8 @@ The collection contains these skills:
 
 The [Codex global instruction template](instructions/codex-AGENTS.md) is an optional companion: it provides personal defaults across projects and guidance on when to use the skill. The skill contains the detailed workflow and works independently. Their source directories are intentionally separate; the global instructions require their own explicit installation. Installing or updating the skill does not apply them.
 
+The distribution build includes the template at `instructions/codex-AGENTS.md`, alongside the marketplace and outside all plugin bundles. After the next publication, it will be available as the [distribution copy](https://github.com/vredenburg/personal-skills/blob/plugin-dist/instructions/codex-AGENTS.md). Downloading or updating the marketplace does not apply it as global instructions.
+
 The template's wording was accepted with version 0.1.5 on 2026-10-27; it is not installed or active. Updating this source does not change active global settings. Acceptance, installation and project adoption are separate decisions.
 
 The extraction, review and pilot history remains in [Project Hex's review record](../project-hex/docs/work/workflow-extraction-review/README.md), linked through a sibling checkout. Isolation work is parked. Moving these sources does not change Hex's accepted workflow or resolve the recorded pilot limitations.

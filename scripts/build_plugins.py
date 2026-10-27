@@ -30,7 +30,11 @@ def source_file(relative):
 def package_files():
     catalog_file = "plugins/marketplace.json"
     catalog = json.loads(source_file(catalog_file)[0])
-    expected = {".agents/plugins/marketplace.json": source_file(catalog_file)}
+    expected = {
+        ".agents/plugins/marketplace.json": source_file(catalog_file),
+        # Distribute the optional template beside the plugins, never inside one.
+        "instructions/codex-AGENTS.md": source_file("instructions/codex-AGENTS.md"),
+    }
     claude_metadata = json.loads(source_file("plugins/claude-marketplace-metadata.json")[0])
     if not isinstance(claude_metadata.get("owner"), dict) or not isinstance(
         claude_metadata["owner"].get("name"), str
