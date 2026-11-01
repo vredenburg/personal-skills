@@ -6,11 +6,23 @@ Frame work by the project outcome, current milestone where present, task goal, s
 
 A scope is **sufficiently specified** when its observable behavior, invariants, boundaries, acceptance criteria, consequential dependencies and verification are settled. Address relevant invalid actions, failure, privacy, access and recovery behavior. Resolve blocking questions; defer future choices that cannot change current commitments. Keep business rules independent of delivery mechanisms where the domain and accepted architecture permit.
 
+Review specifications for contradictory requirements, missing observable outcomes, untestable acceptance criteria, unsupported assumptions and unnecessary scope. Resolve material findings or identify their effect on readiness. This can be self-review where independent review is not otherwise required; it adds no approval round.
+
+A **proportionate plan** identifies the order of work, consequential dependencies and how completion will be verified, with migration or recovery considerations when relevant. Use enough detail to guide execution and expose material risks without prescribing routine implementation choices.
+
 It is **ready for implementation** only when the relevant requirements and decisions are accepted, a proportionate plan exists and implementation is explicitly authorized. Waiting for acceptance or authorization is not a specification gap. Present the concrete decision needed; do not compensate by adding speculative design. Executable experiments need their own applicable bounded authorization and produce evidence, not design acceptance.
 
 Add detail or abstractions only for a current requirement, concrete risk or near-term dependency. Leave ordinary internal choices to implementation, and record only consequential deferrals. Do not reopen settled decisions without new evidence or changed requirements.
 
 Work through framing, necessary decisions, specification, review, planning, authorized execution and verification as needed. These are responsibilities, not separate mandatory documents or approval rounds. Reuse satisfied gates and existing records. Once completion criteria are met, report completion; propose relevant follow-up separately.
+
+## Research for specifications and plans
+
+Before settling a specification or plan, identify the concrete requirements, risks or decisions that need evidence, and research relevant practices in proportion to their uncertainty and consequences. Start with repository evidence, accepted decisions and existing conventions. Consult primary external sources when existing evidence is insufficient, potentially stale or missing relevant best practices, standards or technical guidance. Check applicability to the project's versions, constraints and intended use; distinguish source recommendations from project-specific inference.
+
+Account for material findings in requirements, design choices, acceptance criteria or verification. In the owning specification, decision or work record, link the sources supporting consequential choices and explain their implications, tradeoffs, uncertainty and reasons for departing from relevant guidance. A list of links alone is insufficient. Keep product requirements distinct from implementation advice: research does not make a preferred technique mandatory or override accepted commitments. Propose consequential changes through the existing decision process.
+
+Reuse research that remains applicable; revisit it when requirements change, evidence may be stale or a material question remains unresolved. Stop when the evidence is sufficient for the current decisions. If research is unavailable or inconclusive, record the limitation and any assumptions rather than presenting them as established practice. Treat the gap as blocking readiness only if it could materially change current commitments or acceptance criteria; otherwise proceed within the authorized scope. No separate research document or approval stage is required.
 
 ## Milestones and work navigation
 
@@ -37,5 +49,7 @@ Use the authorized plan and established checks appropriate to the affected crite
 Investigate failures and retain useful reproductions. Do not weaken checks or rerun until green. Once the required checks pass and relevant concerns are resolved, finish. Repeat or broaden verification only for a relevant change, stale evidence, failure or unresolved concern; a cosmetic command correction alone does not invalidate a successful result. Required integrated checks and independent parent verification still apply; [delegation](delegation.md#integration) defines those responsibilities.
 
 Record enough source state, commands, results and limits to reproduce material findings, including versions when relevant. Distinguish passed, failed, not run and blocked. Documentation checks establish links, consistency and scope, not application runtime evidence. Scoped completion does not establish release readiness or satisfy separately defined asset-rights/publication requirements.
+
+Connect completion evidence to the applicable acceptance criteria so it is clear which are satisfied, failed or remain unverified. Use links or a brief explanation in the owning record; a separate traceability matrix is not required. Passing checks establish only the criteria they actually cover.
 
 Finish with changed files, actual checks, limitations, remaining decisions and the result's contribution to the milestone. Use the [handoff procedure](delegation.md#handoffs) when a successor would help; the final response may be the task's handoff.
