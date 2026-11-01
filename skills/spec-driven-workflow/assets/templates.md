@@ -15,6 +15,8 @@ Intent, scope and exclusions:
 Scenarios, inputs, outcomes, invariants and relevant failure/privacy/recovery behavior:
 Acceptance criteria (stable identifiers) and prose verification plan:
 Dependencies and decisions; blocking/deferred questions:
+Research findings and resulting decisions (when relevant): what changed or was confirmed, supporting sources, applicability, tradeoffs and limitations.
+Review findings (when relevant): resolutions and remaining effects on readiness.
 Acceptance: not accepted, or approving human/date/scope/reference/exclusions.
 ```
 
@@ -25,8 +27,9 @@ Acceptance: not accepted, or approving human/date/scope/reference/exclusions.
 Goal, milestone contribution, completion criteria and authoritative source links:
 Allowed changes, exclusions and dependencies:
 Acceptance and scoped implementation authorization (separate facts, with references):
-Plan, ownership and required verification:
-Evidence: relevant source state/commands/results/limits; not-run or blocked checks:
+Plan: order of work, ownership, consequential dependencies and required verification; migration or recovery considerations when relevant.
+Research findings and resulting decisions (when relevant): what changed or was confirmed in the plan, with sources or owning-record links.
+Evidence: relevant source state/commands/results/limits, linked to acceptance criteria; satisfied, failed or unverified criteria and not-run or blocked checks:
 Completion: changed files, milestone progress, remaining issues and useful next action:
 ```
 
