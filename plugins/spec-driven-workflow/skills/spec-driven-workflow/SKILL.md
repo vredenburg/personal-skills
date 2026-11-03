@@ -13,7 +13,7 @@ This skill is self-contained and works without the optional companion global ins
 
 - [Adoption](references/adoption.md): propose or apply an explicitly scoped workflow change.
 - [Lifecycle](references/lifecycle.md): project direction, readiness, records and verification for delivery work.
-- [Delegation and handoffs](references/delegation.md): assignments, integration and successor suggestions; use [model selection](references/model-selection.md) when selecting an agent.
+- [Delegation and handoffs](references/delegation.md): assignments, integration and successor suggestions; use [model selection](references/model-selection.md) when selecting an agent. Read the handoff guidance at substantial task boundaries and before proposing another implementation batch, even when no parallel work is needed.
 - [Templates](assets/templates.md): optional record outlines, adapted to existing project formats.
 
 Read only what the task needs. Reuse current guidance already in context and the project's own complete workflow; do not duplicate it into new files.

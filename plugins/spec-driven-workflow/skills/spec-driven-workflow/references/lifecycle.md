@@ -52,4 +52,6 @@ Record enough source state, commands, results and limits to reproduce material f
 
 Connect completion evidence to the applicable acceptance criteria so it is clear which are satisfied, failed or remain unverified. Use links or a brief explanation in the owning record; a separate traceability matrix is not required. Passing checks establish only the criteria they actually cover.
 
-Finish with changed files, actual checks, limitations, remaining decisions and the result's contribution to the milestone. Use the [handoff procedure](delegation.md#handoffs) when a successor would help; the final response may be the task's handoff.
+Before finalizing substantial work or proposing another implementation batch, assess whether a distinct next objective, phase transition or accumulated context makes a fresh chat useful. When it does, proactively recommend a successor using the [handoff procedure](delegation.md#handoffs); do not wait for the user to ask. This assessment does not add an approval gate or suspend authorized work.
+
+Finish with changed files, actual checks, limitations, remaining decisions and the result's contribution to the milestone. The final response may be the task's handoff.

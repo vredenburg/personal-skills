@@ -28,7 +28,9 @@ The parent inspects artifacts and diffs, checks evidence against its source stat
 
 Prepare a concise handoff at a task boundary; the final response can suffice. Mark unfinished work accurately. Proactively suggest a successor when a distinct next objective, phase transition or difficult-to-follow context makes a new chat useful. Explain the reason, roadmap contribution, proposed scope and missing approvals. A grounded next objective may be proposed without presenting it as selected or authorized.
 
-Do not suggest a successor routinely after small tasks, repeat a declined suggestion without new cause, invent work or use a handoff to avoid a current blocker. A suggestion does not suspend useful authorized work.
+Do not suggest a successor routinely after small tasks, repeat a declined suggestion without new cause, invent work or use a handoff to avoid a current blocker. Recommending a successor requires no creation permission and does not suspend useful authorized work. Creating or messaging one remains subject to the authorization below.
+
+When preparing continuity summaries, preserve any pending, made or declined successor recommendation and its reason alongside task state. After visible context compaction, reassess whether a fresh chat would help; compaction does not itself fulfill the handoff checkpoint or require a new chat. Use the objective and context quality rather than a fixed turn or compaction count. No separate tracking document is required.
 
 A continuing-work handoff carries the project outcome/milestone, next objective and completion criteria, authoritative sources/statuses, approvals and exclusions, checkout/branch/revision and uncommitted work, completed checks and remaining issues, settled decisions/consequential deferrals, and model/effort rationale. Link owning records rather than duplicating them.
 
