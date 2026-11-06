@@ -76,7 +76,7 @@ Claude packaging has passed local structural checks and GitHub publication, but 
 
 ### Publishing updates
 
-When changing a skill, bump the affected package version in `plugins/<name>/plugin.json` and push the source changes to `master`. After the [distribution workflow](https://github.com/vredenburg/personal-skills/actions/workflows/distribute-plugins.yml) succeeds, the update is available on `plugin-dist`. Each device then fetches it through the update commands above or Claude’s enabled auto-update. Do not edit the generated branch directly.
+Source changes pushed to `master` trigger the [distribution workflow](https://github.com/vredenburg/personal-skills/actions/workflows/distribute-plugins.yml). After it succeeds, the update is available on `plugin-dist`. Each device then fetches it through the update commands above or Claude’s enabled auto-update. See [repository guidance](AGENTS.md) for version-bump and maintenance rules. Do not edit the generated branch directly.
 
 These installations keep the global instruction template separate and do not adopt the workflow in any project. See [plugin packaging](plugins/README.md) for build and maintenance details.
 
