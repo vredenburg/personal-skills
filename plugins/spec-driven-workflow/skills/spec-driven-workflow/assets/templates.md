@@ -4,7 +4,7 @@ Adapt only what the task needs to the existing project format. Omit irrelevant f
 
 ## Project instruction excerpt
 
-Include links to the accepted workflow, requirement/decision sources, current work and applicable setup/run/build/test/lint commands; record the actual adopted `spec-driven-workflow` version. Preserve unrelated instructions and project-specific constraints. Resolve real locations before adoption.
+Instruct the project to use the host-discovered `spec-driven-workflow` skill. Link local adaptations when present, requirement/decision sources, current work and applicable setup/run/build/test/lint commands under the [adoption guidance](../references/adoption.md). Preserve unrelated instructions and project-specific constraints. Resolve real locations before adoption.
 
 ## Specification
 
