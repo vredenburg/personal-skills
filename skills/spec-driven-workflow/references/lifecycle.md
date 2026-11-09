@@ -40,6 +40,8 @@ Use the project's status vocabulary. If absent: **Draft** is incomplete; **Propo
 
 Preserve records establishing requirements, permissions or restrictions: approving human, date, scope/revision, available review reference and exclusions or withdrawals. Chat approval can be recorded without publishing the conversation. Relocation does not change its authority; historical checkout references do not establish current state. Keep agent policy concise, with its revisions in version history, while retaining specification and implementation approval records in their owning documents.
 
+Keep adoption chronology and dated investigations outside routine instructions, preserving evidence that establishes permissions or restrictions. A historical-only record must not be the sole home of a current decision; place current dispositions in their owning work or decision records and link historical evidence where needed. Reuse existing records rather than requiring a separate history document.
+
 Preserve accepted commitments while proposing substantive changes to behavior, scope, privacy, recovery, architecture or policy. Editorial corrections follow project conventions. Resolve conflicting accepted sources through a human decision, not by silently choosing one. Missing execution evidence is a verification task, not a missing product decision.
 
 ## Verify and finish
